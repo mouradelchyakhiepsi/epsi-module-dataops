@@ -1,0 +1,14 @@
+[sqlfluff]
+# On indique que l'on utilise dbt (Jinja) et la syntaxe Athena/Presto
+templater = dbt
+dialect = athena
+# Limite la longueur des lignes pour forcer un code lisible
+max_line_length = 100
+
+[sqlfluff:templater:dbt]
+project_dir = ./dbt_shopops
+profiles_dir = ./dbt_shopops
+
+[sqlfluff:rules]
+# Règle AM04 : Interdiction formelle d'utiliser SELECT * (L'arme anti-IA)
+# L'étudiant sera obligé de nommer explicitement chaque colonne.

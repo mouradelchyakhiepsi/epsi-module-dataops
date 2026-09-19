@@ -221,6 +221,7 @@ __pycache__/
 *.pyc
 .env
 venv/
+script_data.py
 
 # Terraform
 .terraform/

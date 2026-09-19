@@ -8,7 +8,10 @@ help:
 
 install:
 	pip install pre-commit
+	# Installe le hook classique (pour le code terraform, python, dbt)
 	pre-commit install
+	# Installe le hook spécifique pour écouter les messages de commit
+	pre-commit install --hook-type commit-msg
 
 start:
 	docker-compose up -d

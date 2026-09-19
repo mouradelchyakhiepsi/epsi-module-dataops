@@ -4,18 +4,18 @@ Repo contenant les TD que je dispense à l'école EPSI pour les étudiants en Ma
 
 ## Prérequis techniques
 
-Pour mener à bien le TD, vous trouverez d'abord les prérequis technique. 
+Pour mener à bien le TD, vous trouverez d'abord les prérequis technique.
 
 ### 1. Comptes et accès
 * **GitHub :** Un compte personnel.
-* **AWS :** Je vous fournirai un accès au début du TD à mon compte AWS. 
+* **AWS :** Je vous fournirai un accès au début du TD à mon compte AWS.
 
 ### 2. Système d'exploitation
 * **macOS / Linux :** Vous n'avez rien à faire.
 * **Windows :** Il est **fortement recommandé** d'installer et d'utiliser **WSL 2** (Windows Subsystem for Linux) avec une distribution Ubuntu.
 
 ### 3. "Toolkit" DataOps
-Installez les outils suivants et assurez-vous qu'ils sont accessibles depuis votre terminal (ajoutés au `PATH`) : 
+Installez les outils suivants et assurez-vous qu'ils sont accessibles depuis votre terminal (ajoutés au `PATH`) :
 * **Git :** Outil de versionnement de code. (Configurez votre identité via `git config --global`).
 * **Python 3.10+ :** Avec le gestionnaire de paquets `pip` fonctionnel.
 * **Docker & Docker Compose :** Indispensable pour faire tourner localement l'orchestrateur et les outils de transformation.
@@ -43,7 +43,7 @@ Exécutez ces commandes dans votre terminal. Si aucune ne renvoie d'erreur, vous
 
 ### Contexte de la mission
 
-Bienvenue chez **ShopOps**, une plateforme e-commerce française en hyper-croissance opérant à l'international (Europe, US, UK). 
+Bienvenue chez **ShopOps**, une plateforme e-commerce française en hyper-croissance opérant à l'international (Europe, US, UK).
 Jusqu'à la semaine dernière, notre infrastructure data tenait sur des scripts artisanaux. La catastrophe redoutée a fini par arriver : une mise à jour d'un développeur backend a silencieusement corrompu nos données de ventes. Le CEO a présenté un tableau de bord financier totalement faux aux investisseurs. **La confiance envers la donnée est brisée.**
 
 En tant que nouvelle recrue Data Engineer, vous intégrez la nouvelle "Task Force DataOps". Votre mission : reprendre l'architecture de zéro, instaurer une rigueur logicielle à notre chaîne de traitement de données, et ramener la confiance.
@@ -53,12 +53,12 @@ En tant que nouvelle recrue Data Engineer, vous intégrez la nouvelle "Task Forc
 ### Exigence de la direction Financière (CFO)
 
 > <br>
->Équipe Data, 
+>Équipe Data,
 >
-> Depuis notre expansion internationale, notre tableau de bord des revenus est incompréhensible. Le montant total additionne des dollars, des livres sterling et des euros sans aucune logique ! En tant qu'entreprise dont le siège est à Paris, j'exige une vision consolidée de notre chiffre d'affaires quotidien dans notre devise de référence. 
-> 
+> Depuis notre expansion internationale, notre tableau de bord des revenus est incompréhensible. Le montant total additionne des dollars, des livres sterling et des euros sans aucune logique ! En tant qu'entreprise dont le siège est à Paris, j'exige une vision consolidée de notre chiffre d'affaires quotidien dans notre devise de référence.
+>
 > De plus, notre catalogue tarifaire évolue souvent. J'ai de sérieux doutes sur notre calcul de marge : j'ai l'impression que le système applique les prix actuels du catalogue sur des commandes qui ont été passées il y a 6 mois.
-> 
+>
 > Réglez ça avec l'aide du nouveau Data Engineer, et assurez-vous qu'aucune donnée aberrante ne puisse plus jamais polluer mes rapports.
 > <br>
 
@@ -79,7 +79,7 @@ L'API du site web vous livre 5 flux de données brutes :
 
 ### Évaluation et critères de succès (score sur 20)
 
-Votre infrastructure sera évaluée par le système CI/CD présent dans le projet. 
+Votre infrastructure sera évaluée par le système CI/CD présent dans le projet.
 
 *   **Standardisation et infra (4 points)** : Exécution propre du pre-commit local et isolation stricte des environnements cloud.
 *   **Contrats de données (4 points)** : Blocage effectif des données aberrantes à l'ingestion.

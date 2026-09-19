@@ -40,4 +40,4 @@ repos:
         name: Vérifier la longueur du message de commit
         language: system
         stages: [commit-msg]  # <-- Ce tag isole l'exécution de ce hook spécifique
-        entry: bash -c 'chars=$(wc -m < "$1"); if [ $chars -lt 50 ]; then echo "Message refusé ($chars/50 caractères). Règle DataOps : Expliquez le contexte et le POURQUOI de votre modification, pas seulement le QUOI."; exit 1; fi' --
+        entry: bash -c 'chars=$(wc -m < "$1"); if [ $chars -lt 50 ]; then echo "Message refusé ($chars/50 caractères). Règle DataOps - Expliquez le contexte et le POURQUOI de votre modification, pas seulement le QUOI. Il faut minimum 50 caractères."; exit 1; fi' --

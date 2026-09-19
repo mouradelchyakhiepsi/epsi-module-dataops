@@ -2,19 +2,19 @@
 
 Repo contenant les TD que je dispense à l'école EPSI pour les étudiants en Master d'informatique, pour le module DataOps.
 
-## Prérequis Techniques
+## Prérequis techniques
 
 Pour mener à bien le TD, vous trouverez d'abord les prérequis technique. 
 
-### 1. Comptes et Accès
+### 1. Comptes et accès
 * **GitHub :** Un compte personnel.
 * **AWS :** Je vous fournirai un accès au début du TD à mon compte AWS. 
 
-### 2. Système d'Exploitation
+### 2. Système d'exploitation
 * **macOS / Linux :** Vous n'avez rien à faire.
 * **Windows :** Il est **fortement recommandé** d'installer et d'utiliser **WSL 2** (Windows Subsystem for Linux) avec une distribution Ubuntu.
 
-### 3. Le "Toolkit" DataOps (Outils CLI)
+### 3. "Toolkit" DataOps
 Installez les outils suivants et assurez-vous qu'ils sont accessibles depuis votre terminal (ajoutés au `PATH`) : 
 * **Git :** Outil de versionnement de code. (Configurez votre identité via `git config --global`).
 * **Python 3.10+ :** Avec le gestionnaire de paquets `pip` fonctionnel.
@@ -23,7 +23,7 @@ Installez les outils suivants et assurez-vous qu'ils sont accessibles depuis vot
 * **AWS CLI (v2) :** L'interface en ligne de commande pour interagir avec le cloud AWS.
 * **GNU Make :** Pour exécuter nos raccourcis d'automatisation.
 
-### 4. L'Environnement de Développement (IDE)
+### 4. L'environnement de développement (IDE)
 L'éditeur standard recommandé pour ce cours est **Visual Studio Code (VS Code)**. Installez impérativement les extensions suivantes :
 * **Python** + **Pylance**
 * **HashiCorp Terraform**
@@ -50,7 +50,7 @@ En tant que nouvelle recrue Data Engineer, vous intégrez la nouvelle "Task Forc
 
 <br>
 
-### Directive de la Direction Financière (CFO)
+### Exigence de la direction Financière (CFO)
 
 > <br>
 >Équipe Data, 
@@ -66,7 +66,7 @@ En tant que nouvelle recrue Data Engineer, vous intégrez la nouvelle "Task Forc
 
 <br>
 
-### Dictionnaire des sources (Couche Bronze)
+### Dictionnaire des sources (couche Bronze)
 
 L'API du site web vous livre 5 flux de données brutes :
 1. **`raw_customers`** : Base CRM clients (`id`, `name`, `country`, `signup_date`).

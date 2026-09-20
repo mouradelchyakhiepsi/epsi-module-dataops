@@ -1,0 +1,60 @@
+dbt_quality_checkname: dbt Data Quality Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  dbt-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout du code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Configuration de Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Installation de dbt et Athena
+        run: |
+          pip install dbt-core dbt-athena-community
+
+      - name: 🔑 Configuration des clés AWS
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+
+      - name: ⚙️ Génération du profiles.yml pour la CI
+        run: |
+          mkdir -p ~/.dbt
+          cat << 'PROFILES' > ~/.dbt/profiles.yml
+          shopops:
+            target: ci
+            outputs:
+              ci:
+                type: athena
+                s3_staging_dir: s3://epsi-shopops-dev-athena-results-${{ secrets.STUDENT_ID }}/
+                s3_data_dir: s3://epsi-shopops-dev-dbt-data-${{ secrets.STUDENT_ID }}/
+                region_name: eu-west-3
+                schema: shopops_marts_${{ secrets.STUDENT_ID }}
+                database: awsdatacatalog
+                threads: 4
+          PROFILES
+
+      - name: 📥 Installation des dépendances dbt (packages)
+        run: cd dbt_shopops && dbt deps
+
+      - name: 🔍 Test de connexion
+        run: cd dbt_shopops && dbt debug
+
+      - name: 🧪 Exécution des tests de qualité
+        run: cd dbt_shopops && dbt test

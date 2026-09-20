@@ -64,4 +64,4 @@ jobs:
         run: cd dbt_shopops && dbt test
 
       - name: 📖 Génération de la documentation technique (Lignage)
-        run: cd dbt_shopops && dbt docs generate
+        run: cd dbt_shopops && dbt docs generate --empty-catalog

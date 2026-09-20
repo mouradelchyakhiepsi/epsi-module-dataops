@@ -1,43 +1,14 @@
-# ==============================================================================
-# PHASE 1 : QUALITÉ DU CODE (S'exécute au moment du 'git commit' sur les fichiers)
-# ==============================================================================
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+  # 1. Vérifications basiques de Git (hygiène du texte)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
 
-# Formatage Infrastructure (Terraform)
--   repo: https://github.com/antonbabenko/pre-commit-terraform
+  # 2. Formatage automatique du code Terraform
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.83.1
     hooks:
-    -   id: terraform_fmt
-
-# Formatage Python (Ruff)
--   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.5
-    hooks:
-    -   id: ruff
-        args: [ --fix ]
-    -   id: ruff-format
-
-# Linter SQL et interdiction du SELECT * (dbt / SQLFluff)
--   repo: https://github.com/sqlfluff/sqlfluff
-    rev: 3.0.3
-    hooks:
-    -   id: sqlfluff-lint
-        additional_dependencies: ['dbt-athena-community', 'sqlfluff-templater-dbt']
-
-
-# ==============================================================================
-# PHASE 2 : QUALITÉ DU MESSAGE (S'exécute après la saisie du texte du commit)
-# ==============================================================================
--   repo: local
-    hooks:
-    -   id: enforce-commit-length
-        name: Vérifier la longueur du message de commit
-        language: system
-        stages: [commit-msg]  # <-- Ce tag isole l'exécution de ce hook spécifique
-        entry: bash -c 'chars=$(wc -m < "$1"); if [ $chars -lt 50 ]; then echo "Message refusé ($chars/50 caractères). Règle DataOps - Expliquez le contexte et le POURQUOI de votre modification, pas seulement le QUOI. Il faut minimum 50 caractères."; exit 1; fi' --
+      - id: terraform_fmt

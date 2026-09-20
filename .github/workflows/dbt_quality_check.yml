@@ -65,3 +65,10 @@ jobs:
 
       - name: 📖 Génération de la documentation technique (Lignage)
         run: cd dbt_shopops && dbt docs generate --empty-catalog
+
+      - name: 🚀 Déploiement de la documentation sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dbt_shopops/target
+          destination_dir: docs

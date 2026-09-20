@@ -1,4 +1,4 @@
-dbt_quality_checkname: dbt Data Quality Check
+name: dbt Data Quality Check
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 
 jobs:
   dbt-tests:

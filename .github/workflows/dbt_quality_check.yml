@@ -62,13 +62,3 @@ jobs:
 
       - name: 🧪 Exécution des tests de qualité
         run: cd dbt_shopops && dbt test
-
-# ... (toutes vos étapes précédentes : checkout, python, pip install, aws credentials, profiles.yml, dbt deps, dbt debug)
-
-      - name: 🔄 Exécution résiliente de dbt build (avec Retries)
-        uses: nick-invision/retry@v9
-        with:
-          timeout_minutes: 10
-          max_attempts: 3            # Tente jusqu'à 3 fois en cas d'échec
-          retry_wait_seconds: 60     # Attend 60 secondes entre chaque tentative
-          command: cd dbt_shopops && dbt build

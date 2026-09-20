@@ -43,7 +43,7 @@ jobs:
                 type: athena
                 s3_staging_dir: s3://epsi-shopops-dev-athena-results-${{ secrets.STUDENT_ID }}/
                 s3_data_dir: s3://epsi-shopops-dev-dbt-data-${{ secrets.STUDENT_ID }}/
-                region_name: eu-west-3
+                region_name: eu-north-1
                 schema: shopops_marts_${{ secrets.STUDENT_ID }}
                 database: awsdatacatalog
                 threads: 4

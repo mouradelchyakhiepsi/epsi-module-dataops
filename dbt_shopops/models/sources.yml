@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: shopops_raw
+    description: "Données brutes de la Landing Zone ShopOps (S3 + Athena)"
+    database: awsdatacatalog
+    schema: shopops_raw
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_payments
+      - name: products_scd2
+      - name: exchange_rates
+      - name: calendar

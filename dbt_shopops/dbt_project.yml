@@ -1,0 +1,28 @@
+name: 'shopops'
+version: '1.0.0'
+config-version: 2
+
+profile: 'shopops'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  shopops:
+    +materialized: view
+    staging:
+      +schema: staging
+    intermediate:
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +table_type: iceberg
+      +format: parquet
+      +schema: marts

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Table de faits des commandes, stockée en Apache Iceberg."
+    columns:
+      - name: order_id
+        description: "Identifiant unique de la commande."
+        tests:
+          - unique
+          - not_null
+      - name: order_amount_eur
+        description: "Montant théorique de la commande en Euros"
+        tests:
+          # On s'assure qu'aucun montant n'est négatif
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0

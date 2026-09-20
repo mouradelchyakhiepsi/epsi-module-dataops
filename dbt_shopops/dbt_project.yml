@@ -1,28 +1,29 @@
 name: 'shopops'
 version: '1.0.0'
-config-version: 2
-
 profile: 'shopops'
-
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-
-clean-targets:
-  - "target"
-  - "dbt_packages"
 
 models:
   shopops:
-    +materialized: view
+    # 1. Couche Staging (Vues virtuelles)
     staging:
-      +schema: staging
+      +materialized: view
+
+    # 2. Couche Intermediate (Vues virtuelles)
     intermediate:
-      +schema: intermediate
+      +materialized: view
+
+    # 3. Couche Marts (Tables physiques Iceberg)
     marts:
       +materialized: table
       +table_type: iceberg
-      +format: parquet
-      +schema: marts
+
+# Configuration des tests
+tests:
+  # Activé par défaut pour tout le projet (parfait pour le Staging)
+  +store_failures: true
+  +schema: "audit_data_quality"
+
+  shopops:
+    marts:
+      # On le désactive spécifiquement pour la couche finale pour éviter le conflit Iceberg
+      +store_failures: false

@@ -8,9 +8,6 @@ terraform {
 }
 
 provider "aws" {
-  # La    région de Stockholm
+  # La région de Stockholm
   region = "eu-north-1"
-
-
-
 }

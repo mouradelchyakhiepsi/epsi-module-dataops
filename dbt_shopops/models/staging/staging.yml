@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Commandes nettoyées avec transtypage"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null :
+              config :
+                severity: error
+      - name: status
+        tests:
+          - accepted_values:
+              # On s'assure qu'aucun statut farfelu n'est entré dans le système
+              values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+              config :
+                severity: warn
+
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products_scd2
+    columns:
+      - name: product_id
+        tests:
+          - not_null

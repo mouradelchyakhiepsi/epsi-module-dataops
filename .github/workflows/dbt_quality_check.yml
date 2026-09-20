@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - main
+    schedule:
+    # S'exécute toutes les 10 minutes (Ex: à :00, :10, :20, :30, etc.)
+    - cron: '*/10 * * * *'
   pull_request:
     branches:
       - main
+
+
 
 jobs:
   dbt-tests:
